@@ -1,0 +1,23 @@
+<div class="container mt-3">
+<h1>My lists</h1>
+
+
+<div class="row">
+  <% @lists.each do |list| %>
+
+    <div class="card-list col-3">
+      <%= link_to list_path(list) do %>
+        <h2><%= list.name %></h2>
+        <ul>
+          <% list.movies.each do |movie| %>
+            <li><%= movie.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= link_to "X", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"}  %>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
